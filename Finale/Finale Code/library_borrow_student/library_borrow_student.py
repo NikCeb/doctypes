@@ -17,4 +17,9 @@ class LibraryBorrowStudent(Document):
 
 		self.lb_from_date = date.today()
 
+		temp = self.name
+		user = self.lb_student
+		user_name = frappe.get_doc("Student", user)
+		self.name = f"{user_name.first_name} {user_name.last_name} {temp}"
+
 		doc.save()
