@@ -15,7 +15,7 @@ class LibraryReturnStudent(Document):
 		doc_borrow_student = frappe.get_doc("Library Borrow Student" , user) #GET Student
 		from_date = doc_borrow_student.lb_from_date
 		due_date = doc_borrow_student.lb_due_date
-		member = doc_borrow_student.lb_student
+		member = doc_borrow_student.title
 		doc_borrow_student.enabled = 0
 
 		return_book = doc_borrow_student.lb_title
