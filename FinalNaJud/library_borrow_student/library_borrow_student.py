@@ -13,7 +13,10 @@ class LibraryBorrowStudent(Document):
 		book = self.lb_title
 		doc = frappe.get_doc("Library Books" , book)
 		number = doc.lbks_quantity
-		doc.lbks_quantity = number - 1
+		if (number == 1):
+			doc.enabled = 0
+		doc.lbks_quantity = int(number) - 1
+
 
 		self.lb_from_date = date.today()
 
@@ -21,5 +24,6 @@ class LibraryBorrowStudent(Document):
 		user = self.lb_student
 		user_name = frappe.get_doc("Student", user)
 		self.name = f"{user_name.first_name} {user_name.last_name} {temp}"
+		self.lb_info = f"{user_name.first_name} {user_name.last_name}"
 
 		doc.save()

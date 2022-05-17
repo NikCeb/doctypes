@@ -15,17 +15,23 @@ class LibraryReturnStudent(Document):
 		doc_borrow_student = frappe.get_doc("Library Borrow Student" , user) #GET Student
 		from_date = doc_borrow_student.lb_from_date
 		due_date = doc_borrow_student.lb_due_date
-		member = user
-		doc_borrow_student.enabled = 0
+		member = doc_borrow_student.lb_info
+		self.lr_info = doc_borrow_student.lb_student
+		self.lr_name = doc_borrow_student.lb_info
+
 
 		return_book = doc_borrow_student.lb_title
 		book = frappe.get_doc("Library Books", return_book) #GET Book Title
 		number = book.lbks_quantity # Return Copy Int
-		book.lbks_quantity = int(number) + 2
+		if (number == 0):
+			book.enabled = 1
+		book.lbks_quantity = int(number) + 1
 
 		book.save()
+
 		# book.save() If this runs,you are calling lr_library_borrow_student.property
 		# hence it will -1 from quantity again, hence + 2
+
 
 		self.lr_return_date = date.today() # SET Date
 		self.lr_due_date = doc_borrow_student.lb_due_date
@@ -47,5 +53,6 @@ class LibraryReturnStudent(Document):
 				check_doc.lob_overdue = int(due_date) + int(due_days)
 				check_doc.save()
 
-		if True:
-			doc_borrow_student.save()
+
+		if (True):
+			doc_student = frappe.delete_doc("Library Borrow Student" , user) #GET Student

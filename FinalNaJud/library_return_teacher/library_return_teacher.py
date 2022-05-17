@@ -16,12 +16,14 @@ class LibraryReturnTeacher(Document):
 		from_date = doc_borrow_teacher.lb_from_date
 		due_date = doc_borrow_teacher.lb_due_date
 		member = doc_borrow_teacher.lb_teacher
-		doc_borrow_teacher.enabled = 0
+		self.lr_info = doc_borrow_teacher.lb_teacher
 
 		return_book = doc_borrow_teacher.lb_title
 		book = frappe.get_doc("Library Books", return_book) #GET Book Title
 		number = book.lbks_quantity # Return Copy Int
-		book.lbks_quantity = int(number) + 2
+		if (number == 0):
+			book.enabled = 1
+		book.lbks_quantity = int(number) + 1
 
 		book.save()
 		# book.save() If this runs,you are calling lr_library_borrow_teacher.property
@@ -47,5 +49,5 @@ class LibraryReturnTeacher(Document):
 				check_doc.lob_overdue = int(due_date) + int(due_days)
 				check_doc.save()
 
-		if True:
-			doc_borrow_teacher.save()
+		if (True):
+			doc_teacher = frappe.delete_doc("Library Borrow Teacher" , user) #GET Student

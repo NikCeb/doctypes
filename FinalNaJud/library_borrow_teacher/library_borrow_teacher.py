@@ -13,7 +13,9 @@ class LibraryBorrowTeacher(Document):
 		book = self.lb_title
 		doc = frappe.get_doc("Library Books" , book)
 		number = doc.lbks_quantity
-		doc.lbks_quantity = number - 1
+		if (number == 1):
+			doc.enabled = 0
+		doc.lbks_quantity = int(number) - 1
 
 		self.lb_from_date = date.today()
 
