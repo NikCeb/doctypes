@@ -1,0 +1,132 @@
+{% if booker_list %}
+<style>
+  #search{
+    padding-top:30px;
+
+  }
+  #search .search{
+    width: 600px;
+    height:40px;
+    border-radius: 25px;
+
+  }
+  #showcase{
+    background-image: url(../reg.jpg);
+    min-height: 550px;
+    background-size: 1920px 600px;
+    border-bottom: 10px solid;
+    border-bottom-color: #4c6972;
+  }
+  #showcase .content-wrap h1{
+  padding-top: 20%;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 50px;
+}
+#books{
+  padding-top:50px;
+  padding-bottom:50px;
+}
+  body{
+    background:#F2F2F2F2;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Book List</title>
+</head>
+<body>
+  <main>
+    <!--Intro-->
+    <section id="showcase">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content-wrap">
+              <h1>Book List</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      <!--Intro Ened-->
+      <section id="search">
+        <div class="search-bar">
+          <input class="search" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." style="position:absolute; left:30%; text-align:center;">
+        </div>
+
+      </section>
+      <section id="books">
+        <div class="container">
+          <table id="myTable" class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Tile</th>
+                <th scope="col">Author</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              {% for books in booker_list %}
+                <td>  {{ books.get("title", "") }} </td>
+                <td>  {{ books.get("lbks_author", "") }}  </td>
+                <td>{{ books.lbks_subject }}</td>
+                <td>{{ books.lbks_quantity }}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+      </table>
+        </div>
+
+      </section>
+  </main>
+  <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+</body>
+
+{% else %}
+
+  <p style="font-size:36px; ">No orders!</p>
+
+{% endif %}
