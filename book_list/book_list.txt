@@ -1,0 +1,74 @@
+<h2> Books List </h2>
+
+{% if booker_list %}
+
+  <head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+  <table id="myTable">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Subject</th>
+      </tr>
+    {% for books in booker_list %}
+      <tr>
+        <td>{{ books.get("title", "") }} </td>
+        <td>{{ books.get("lbks_author", "") }}</td>
+        <td>{{ books.lbks_subject }}</td>
+        <td>
+
+        </td>
+
+      </tr>
+    {% endfor %}
+  </table>
+  <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+
+{% else %}
+
+  <p style="font-size:36px; ">No orders!</p>
+
+{% endif %}

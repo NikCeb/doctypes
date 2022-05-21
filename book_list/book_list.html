@@ -11,17 +11,18 @@
 
   }
   #showcase{
-    background-image: url(../reg.jpg);
-    min-height: 550px;
+    background-image: url(../new-books.jpg);
+    min-height: 190px;
     background-size: 1920px 600px;
     border-bottom: 10px solid;
     border-bottom-color: #4c6972;
   }
   #showcase .content-wrap h1{
-  padding-top: 20%;
+  margin-top: 60px;
   text-transform: uppercase;
   color: #ffffff;
   font-size: 50px;
+  padding-left:200px;
 }
 #books{
   padding-top:50px;
@@ -57,20 +58,18 @@
   <main>
     <!--Intro-->
     <section id="showcase">
-      <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="content-wrap">
-              <h1>Book List</h1>
+              <h1>Books</h1>
             </div>
           </div>
         </div>
-      </div>
     </section>
       <!--Intro Ened-->
       <section id="search">
         <div class="search-bar">
-          <input class="search" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." style="position:absolute; left:30%; text-align:center;">
+          <input class="search" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Title.." style="position:absolute; left:30%; text-align:center;">
         </div>
 
       </section>
@@ -79,7 +78,7 @@
           <table id="myTable" class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">Tile</th>
+                <th scope="col">Title</th>
                 <th scope="col">Author</th>
                 <th scope="col">Subject</th>
                 <th scope="col">Quantity</th>
@@ -127,6 +126,50 @@ function myFunction() {
 
 {% else %}
 
-  <p style="font-size:36px; ">No orders!</p>
+<main>
+  <!--Intro-->
+  <section id="showcase">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="content-wrap">
+            <h1>Books</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!--Intro Ened-->
+    <section id="search">
+      <div class="search-bar">
+        <input class="search" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Title.." style="position:absolute; left:30%; text-align:center;">
+      </div>
 
+    </section>
+    <section id="books">
+      <div class="container">
+        <table id="myTable" class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            {% for books in booker_list %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+      </div>
+
+    </section>
+</main>
 {% endif %}
