@@ -30,7 +30,7 @@ class LibraryReturnStudent(Document):
 		book.save()
 
 		# book.save() If this runs,you are calling lr_library_borrow_student.property
-		# hence it will -1 from quantity again, hence + 2
+		# hence it will -1 from quantity again, hence + 1
 
 
 		self.lr_return_date = date.today() # SET Date
@@ -55,4 +55,4 @@ class LibraryReturnStudent(Document):
 
 
 		if (True):
-			doc_student = frappe.delete_doc("Library Borrow Student" , user) #GET Student
+			doc_student = frappe.delete_doc("Library Borrow Student" , user) #Delete Student
