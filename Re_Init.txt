@@ -1,1 +1,3 @@
 bench init frappe-bench --verbose --frappe-branch version-13
+
+change directory of bench
