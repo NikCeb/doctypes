@@ -27,7 +27,7 @@ class LibraryReturnTeacher(Document):
 
 		book.save()
 		# book.save() If this runs,you are calling lr_library_borrow_teacher.property
-		# hence it will -1 from quantity again, hence + 2
+		# hence it will -1 from quantity again, hence + 1
 
 		self.lr_return_date = date.today() # SET Date
 		self.lr_due_date = doc_borrow_teacher.lb_due_date
@@ -35,16 +35,17 @@ class LibraryReturnTeacher(Document):
 		due = doc_borrow_teacher.lb_due_date
 
 		if (today > due):
-			due_days = int(np.busday_count( str(due) , str(today)))
+			due_days = int(np.busday_count( str(due) , str(today))) 
 
+			# Inserts data if no data is present / updates if there is present data
 			try:
-				doc_member = frappe.new_doc("Library Overdue")
+				doc_member = frappe.new_doc("Library Overdue") 
 				doc_member.lob_user = str(member)
 				doc_member.lob_overdue = int(due_days)
 				doc_member.insert()
 
 			except:
-				check_doc = frappe.get_doc("Library Overdue", member)
+				check_doc = frappe.get_doc("Library Overdue", member) 
 				due_date = check_doc.lob_overdue
 				check_doc.lob_overdue = int(due_date) + int(due_days)
 				check_doc.save()

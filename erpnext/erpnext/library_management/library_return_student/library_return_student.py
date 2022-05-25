@@ -41,6 +41,7 @@ class LibraryReturnStudent(Document):
 		if (today > due):
 			due_days = int(np.busday_count( str(due) , str(today)))
 
+			# Inserts data if no data is present / updates if there is present data
 			try:
 				doc_member = frappe.new_doc("Library Overdue")
 				doc_member.lob_user = str(member)
