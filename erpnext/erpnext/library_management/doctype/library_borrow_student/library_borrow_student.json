@@ -1,0 +1,94 @@
+{
+ "_comments": "[]",
+ "_liked_by": "[\"Administrator\"]",
+ "_user_tags": ",Library",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{#####} ",
+ "creation": "2022-04-20 23:28:57.628896",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lb_student",
+  "lb_title",
+  "lb_from_date",
+  "lb_due_date",
+  "lb_info"
+ ],
+ "fields": [
+  {
+   "fieldname": "lb_due_date",
+   "fieldtype": "Date",
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lb_from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lb_student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lb_title",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Library Book",
+   "options": "Library Books",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lb_info",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Info",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-05-17 20:53:42.488880",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Library Borrow Student",
+ "name_case": "Title Case",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

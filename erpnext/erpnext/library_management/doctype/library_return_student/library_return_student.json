@@ -1,0 +1,97 @@
+{
+ "_comments": "[]",
+ "_liked_by": "[\"Administrator\"]",
+ "_user_tags": ",Library",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{lr_library_borrow_student} ",
+ "creation": "2022-04-20 23:37:46.791747",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lr_library_borrow_student",
+  "lr_due_date",
+  "lr_return_date",
+  "lr_info",
+  "lr_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "lr_return_date",
+   "fieldtype": "Date",
+   "label": "Return Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "lr_from_date.due_date",
+   "fieldname": "lr_due_date",
+   "fieldtype": "Date",
+   "label": "Due Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lr_library_borrow_student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Library Borrow",
+   "options": "Library Borrow Student",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lr_info",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Student Info",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lr_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Student Name",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2022-05-17 20:46:39.949980",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Library Return Student",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

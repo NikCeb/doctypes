@@ -1,0 +1,87 @@
+{
+ "_comments": "[]",
+ "_liked_by": "[\"Administrator\"]",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{lb_teacher} - {#####}",
+ "creation": "2022-05-15 07:04:24.890046",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lb_teacher",
+  "lb_title",
+  "lb_from_date",
+  "lb_due_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "lb_teacher",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Teacher",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lb_title",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Library Book",
+   "options": "Library Books",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lb_from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lb_due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Due Date",
+   "reqd": 1
+  }
+ ],
+ "links": [],
+ "modified": "2022-05-17 21:34:15.508279",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Library Borrow Teacher",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

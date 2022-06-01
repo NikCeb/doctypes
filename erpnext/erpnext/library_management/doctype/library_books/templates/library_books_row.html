@@ -1,0 +1,39 @@
+<style>
+  img[src="None"]{
+    display:none !important;
+  }
+  table{
+  }
+  </style>
+
+<table class="table table-hover table-striped table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+       <td class="w-25">
+         <img src="{{ doc.lbks_image }}" alt="{{ doc.lbks_name }} width="100" height="120">
+       </td>
+      <td><a class="font-size-lg" href="{{ doc.route }}">{{ doc.title }}</a></td>
+      <td> <p class="text-muted">By: {{ doc.lbks_author }} <br> Subject: {{ doc.lbks_subject }}</td>
+	<td>
+      <div style="width:100px center">
+          {%- if lbks_quantity != 0 -%}
+
+              <span class="badge badge-success">Available</span>
+                  {%- elif lbks_quantity == 0 -%}
+
+                    <span class="badge badge-danger">Borrowed</span>
+
+                      {%- endif -%}
+      </div>
+
+            <div class="progress" style="width:65px">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{doc.lbks_quantity}}"
+                        aria-valuemin="0" aria-valuemax="{{ doc.max_copies }}" style="width:100%">{{doc.lbks_quantity}}/{{doc.lbks_max_quantity}}</div>
+            </div>
+
+	</td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
