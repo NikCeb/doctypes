@@ -1,0 +1,1 @@
+This ERPNEXT custom module for Library is completed.
