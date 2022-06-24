@@ -1,1 +1,3 @@
 This ERPNEXT custom module for Library is completed.
+
+Completed By: Nikolai Angelo Ceballos and Nazareno Vargas on June 4 2022
